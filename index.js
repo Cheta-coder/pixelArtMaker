@@ -5,12 +5,13 @@
 // Using the values, create a table with the same number of rows and colums as requested
 // Add eventListener to the colorPicked so that when it is clicked whatever color value it has will be grabed
 // Give every td of the table a responsiveness so that when it is clicked its background color will be equal to the color value picked
+// When the clear button is clicked, clear the table
 
 
 
 let gridWidth = document.querySelector('#rows')
 let gridHeight = document.querySelector('#columns')
-let colorPicked = document.querySelector('#colorPicker')
+let colorPicker = document.querySelector('#colorPicker')
 let clearBtn = document.querySelector('#clear')
 let drawBtn = document.querySelector('#draw')
 let canvas = document.querySelector('#pixelCanvas')
@@ -35,19 +36,19 @@ drawBtn.addEventListener('click', () => {
     // Create Columns
     for(j = 0; j < gridWidth.value; j++){
         count += 2;
-        // create column tr
+        // create column td
         let col = document.createElement("td");
         col.classList.add("gridColumns");
         /* We need unique ids for all columns (for touch screen specifically) */
-        col.setAttribute("id", `gridCol${count}`);
+        col.setAttribute("id", `gridColumns${count}`);
 
         col.addEventListener('mousedown', ()=>{
             draw = true;
-            //if erase = true then background = transparent else color
+            //if erase = true then background = transparent else colorpicked
             if (erase) {
             col.style.backgroundColor = "transparent";
             } else {
-            col.style.backgroundColor = colorPicked.value;
+            col.style.backgroundColor = colorPicker.value;
             }
         });
 
@@ -58,8 +59,8 @@ drawBtn.addEventListener('click', () => {
         //append columns
         td.appendChild(col);
     }
-    // Append tr to Canvas
-    td.append(col)
+    // Append td to Canvas
+    td.append(canvas)
   }
 
 })

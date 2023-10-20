@@ -1,0 +1,49 @@
+body {
+    background-color: plum;
+}
+.wrapper {
+    background-color: #ffffff;
+    width: 50%;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+    padding: 40px 20px;
+    border-radius: 8px;
+}
+label {
+    display: block;
+}
+input[ type="number"] {
+    width: 90%;
+}
+.opt-wrapper {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    gap: 10px;
+}
+button {
+    background-color: plum;
+    border: none;
+    border-radius: 5px;
+    padding: 5px;
+}
+button:hover{
+    background-color: white;
+    border: 3px solid plum;
+}
+input[type="color"] {
+    background-color: transparent;
+    width: 80%;
+    height: 40px;
+    border: none;
+    cursor: pointer;
+}
+
+@media only screen and (max-width: 768px) {
+.gridCol {
+    height: 0.8em;
+    width: 0.8em;
+}
+}
