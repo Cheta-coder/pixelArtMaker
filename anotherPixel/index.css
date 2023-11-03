@@ -35,10 +35,30 @@ button:hover{
 }
 input[type="color"] {
     background-color: transparent;
-    width: 80%;
+    width: 70px;
     height: 40px;
     border: none;
+    border-radius: 5px;
     cursor: pointer;
+}
+
+table{
+    width: 50.5em;
+}
+
+td{
+    width: 1em;
+    height: 1em;
+    cursor: pointer;
+}
+
+td:hover{
+    width: 1.3em;
+}
+
+tr, td{
+    background-color: white;
+    border: .5px solid plum;
 }
 
 @media only screen and (max-width: 768px) {

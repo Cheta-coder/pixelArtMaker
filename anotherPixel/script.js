@@ -18,7 +18,7 @@
 
 //Initial references
 let container = document.querySelector(".container");
-let draw = document.getElementById("submit");
+let drawBtn = document.getElementById("submit");
 let clear = document.getElementById("clear");
 let rowHeight = document.getElementById("height-column");
 let colWidth = document.getElementById("width-row");
@@ -26,29 +26,59 @@ let colorButton = document.getElementById("color-input");
 let eraseBtn = document.getElementById("erase-btn");
 let paintBtn = document.getElementById("paint-btn");
 
-// Add eventListener to draw
-draw.addEventListener('click', (e)=>{
-    // store the values of the column and row inputs
-    rows = rowHeight.value;
-    columns = colWidth.value;
-    let count = 0;
-    // create a table
+draw = false
+erase = false
+
+let create = ()=> {
+    let rows = Number(rowHeight.value);
+    let columns = Number(colWidth.value);
     let table = document.createElement('table');
-    // create as many 'trs' and 'tds' as the values of rowHeight and colWidth
-    // Loop for creating rows
-    for (let i = 0; i = rowHeight.value; i++){
-        //incrementing count by 2
-        count += 2;
-        //Create row div
-        let tr = document.createElement("tr");
-        tr.classList.add("tableRow");
-        //Create Columns
-        for (let j = 0; j < colWidth.value; j++) {
-            count += 2;
-            let column = document.createElement("td");
-            col.classList.add("tableColumn");
-            /* We need unique ids for all columns */
-            column.setAttribute("id", `tableColumn${count}`);
+    console.log(typeof(columns));
+
+    for(i = 0; i < rows; i++){
+        let trow = document.createElement('tr');
+        console.log(trow);
+        for(j = 0; j < columns; j++){
+            let tdata = document.createElement('td');
+            tdata.setAttribute("class", 'tdata');
+
+            // tdata.addEventListener('mousedown', ()=>{
+            //     // User starts drawing
+            //     draw = true;
+            //     // If erase = true, then the background image = transparent else = color value
+            //     if(erase){
+            //         tdata.style.backgroundColor = 'transparent';
+            //     }else{
+            //         tdata.style.backgroundColor = colorButton.value;
+            //     }
+            // });
+
+            // // User stops drawing
+            // tdata.addEventListener('mouseup', ()=>{
+            //     draw = false
+            // })
+            trow.appendChild(tdata);
+            table.appendChild(trow);
         }
+        container.innerHTML = ''
+        container.appendChild(table);
     }
-})
+}
+
+drawBtn.addEventListener('click', create)
+
+// //Clear Grid
+// clear.addEventListener("click", () => {
+//     container.innerHTML = "";
+// });
+
+// //Erase Button
+//   eraseBtn.addEventListener("click", () => {
+//   erase = true;
+// });
+  
+// //Paint button
+//   paintBtn.addEventListener("click", () => {
+//   erase = false;
+// });
+
