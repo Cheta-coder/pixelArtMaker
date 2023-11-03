@@ -42,21 +42,21 @@ let create = ()=> {
             let tdata = document.createElement('td');
             tdata.setAttribute("class", 'tdata');
 
-            // tdata.addEventListener('mousedown', ()=>{
-            //     // User starts drawing
-            //     draw = true;
-            //     // If erase = true, then the background image = transparent else = color value
-            //     if(erase){
-            //         tdata.style.backgroundColor = 'transparent';
-            //     }else{
-            //         tdata.style.backgroundColor = colorButton.value;
-            //     }
-            // });
+            tdata.addEventListener('mousedown', ()=>{
+                // User starts drawing
+                draw = true;
+                // If erase = true, then the background image = transparent else = color value
+                if(erase){
+                    tdata.style.backgroundColor = 'transparent';
+                }else{
+                    tdata.style.backgroundColor = colorButton.value;
+                }
+            });
 
-            // // User stops drawing
-            // tdata.addEventListener('mouseup', ()=>{
-            //     draw = false
-            // })
+            // User stops drawing
+            tdata.addEventListener('mouseup', ()=>{
+                draw = false
+            })
             trow.appendChild(tdata);
             table.appendChild(trow);
         }
@@ -67,18 +67,18 @@ let create = ()=> {
 
 drawBtn.addEventListener('click', create)
 
-// //Clear Grid
-// clear.addEventListener("click", () => {
-//     container.innerHTML = "";
-// });
+//Clear Grid
+clear.addEventListener("click", () => {
+    container.innerHTML = "";
+});
 
-// //Erase Button
-//   eraseBtn.addEventListener("click", () => {
-//   erase = true;
-// });
+//Erase Button
+  eraseBtn.addEventListener("click", () => {
+  erase = true;
+});
   
-// //Paint button
-//   paintBtn.addEventListener("click", () => {
-//   erase = false;
-// });
+//Paint button
+  paintBtn.addEventListener("click", () => {
+  erase = false;
+});
 
