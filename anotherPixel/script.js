@@ -51,19 +51,36 @@ let create = ()=> {
                 }else{
                     tdata.style.backgroundColor = colorButton.value;
                 }
+                tdata.addEventListener('dblclick', ()=>{
+                    tdata.style.backgroundColor = 'transparent'
+                })
+                // if(tdata.style.backgroundColor = colorButton.value){
+                //     tdata.addEventListener('mousedown', ()=>{
+                //         tdata.style.backgroundColor = 'transparent';
+                //     });
+                // };
+                // if(tdata.style.backgroundColor = 'transparent'){
+                //     tdata.addEventListener('mousedown', ()=>{
+                //         tdata.style.backgroundColor = colorButton.value;
+                //     });
+                // };
+                // tdata.addEventListener('dblclick', )
             });
 
             // User stops drawing
             tdata.addEventListener('mouseup', ()=>{
-                draw = false
+                draw = false;
             })
             trow.appendChild(tdata);
             table.appendChild(trow);
         }
-        container.innerHTML = ''
+        container.innerHTML = '';
+
+
         container.appendChild(table);
     }
 }
+
 
 drawBtn.addEventListener('click', create)
 
