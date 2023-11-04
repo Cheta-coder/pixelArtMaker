@@ -54,6 +54,7 @@ let create = ()=> {
                 tdata.addEventListener('dblclick', ()=>{
                     tdata.style.backgroundColor = 'transparent'
                 })
+                
                 // if(tdata.style.backgroundColor = colorButton.value){
                 //     tdata.addEventListener('mousedown', ()=>{
                 //         tdata.style.backgroundColor = 'transparent';
