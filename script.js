@@ -26,8 +26,14 @@ let colorButton = document.getElementById("color-input");
 let eraseBtn = document.getElementById("erase-btn");
 let paintBtn = document.getElementById("paint-btn");
 
-draw = false
-erase = false
+let count;
+draw = false;
+erase = false;
+
+window.onload = ()=>{
+    rowHeight.value = 0;
+    colWidth.value = 0;
+}
 
 let create = ()=> {
     let rows = Number(rowHeight.value);
@@ -43,6 +49,7 @@ let create = ()=> {
             tdata.setAttribute("class", 'tdata');
 
             tdata.addEventListener('mousedown', ()=>{
+                count++
                 // User starts drawing
                 draw = true;
                 // If erase = true, then the background image = transparent else = color value
@@ -51,6 +58,13 @@ let create = ()=> {
                 }else{
                     tdata.style.backgroundColor = colorButton.value;
                 }
+                if(count === 1){
+                    tdata.style.backgroundColor = colorButton.value;
+                }
+                if(count >1){
+                    tdata.style.backgroundColor = 'transparent';
+                }
+                count = 0;
                 tdata.addEventListener('dblclick', ()=>{
                     tdata.style.backgroundColor = 'transparent'
                 })
@@ -76,7 +90,7 @@ let create = ()=> {
             table.appendChild(trow);
         }
         container.innerHTML = '';
-
+    
 
         container.appendChild(table);
     }
@@ -99,4 +113,3 @@ clear.addEventListener("click", () => {
   paintBtn.addEventListener("click", () => {
   erase = false;
 });
-
